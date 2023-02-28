@@ -9,6 +9,7 @@ type NonBidStatusCode int64
 //
 // Values 500+ are exchange specific values; should be communicated with buyers beforehand.
 const (
+	NoBidWinningBid                         NonBidStatusCode = -1  // Winning Bid
 	NoBidGeneral                            NonBidStatusCode = 0   // No Bid - General
 	NoBidInternalTechnicalError             NonBidStatusCode = 1   // No Bid - Internal Technical Error
 	NoBidInvalidRequestObj                  NonBidStatusCode = 2   // No Bid - Invalid Request
