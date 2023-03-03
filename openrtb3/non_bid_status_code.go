@@ -1,15 +1,14 @@
 package openrtb3
 
-// NonBidStatusCode represents OpenRTB Loss Reason Code enumeration.
+// NonBidStatusCode represents OpenRTB Non Bid Rejection Code enumeration.
 //
-// It lists the options for an exchange to inform a bidder as to the reason why they did not win an item.
-type NonBidStatusCode int64
+// It lists the options for an exchange to inform the publisher about the bid rejection.
+type NonBidStatusCode int
 
 // NonBidStatusCode options.
 //
-// Values 500+ are exchange specific values; should be communicated with buyers beforehand.
+// Values 500+ are vendor specific values; should be communicated with buyers beforehand.
 const (
-	NoBidWinningBid                         NonBidStatusCode = -1  // Winning Bid
 	NoBidGeneral                            NonBidStatusCode = 0   // No Bid - General
 	NoBidInternalTechnicalError             NonBidStatusCode = 1   // No Bid - Internal Technical Error
 	NoBidInvalidRequestObj                  NonBidStatusCode = 2   // No Bid - Invalid Request
