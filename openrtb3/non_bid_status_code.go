@@ -41,8 +41,6 @@ const (
 	LossBidDuplicateBid                     NonBidStatusCode = 302 // Response Rejected - Duplicate
 	LossBidCategoryMapping                  NonBidStatusCode = 303 // Response Rejected - Category Mapping Invalid
 	LossBidBelowDealFloor                   NonBidStatusCode = 304 // Bid was Below Deal Floor
-	LossBidLostToHigherBid                  NonBidStatusCode = 305 // Lost to Higher Bid
-	LossBidLostToDealBid                    NonBidStatusCode = 306 // Lost to a Bid for a Deal
 	LossBidInvalidCreative                  NonBidStatusCode = 350 // Creative Filtered - Duration Mismatch/ Invalid Creative
 	LossBidInvalidCreativeSizeNotAllowed    NonBidStatusCode = 351 //  Response Rejected - Invalid Creative (Size Not Allowed)
 	LossBidInvalidCreativeNotSecure         NonBidStatusCode = 352 //  Response Rejected - Invalid Creative (Not Secure)
@@ -51,4 +49,8 @@ const (
 	LossBidAdvertiserExclusions             NonBidStatusCode = 355 // Creative Filtered - Advertiser Exclusions
 	LossBidAdvertiserBlocking               NonBidStatusCode = 356 // Creative Filtered - Advertiser Blocking
 	LossBidCategoryExclusions               NonBidStatusCode = 357 // Creative Filtered - Category Exclusions
+
+	// vendor specific codes (500+)
+	LossBidLostToHigherBid NonBidStatusCode = 501 // Response Rejected - Lost to Higher Bid
+	LossBidLostToDealBid   NonBidStatusCode = 502 // Response Rejected - Lost to a Bid for a Deal
 )
