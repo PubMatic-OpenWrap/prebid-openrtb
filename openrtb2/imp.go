@@ -130,7 +130,8 @@ type Imp struct {
 	// Description:
 	//   Currency specified using ISO-4217 alpha codes. This may be
 	//   different from bid currency returned by bidder if this is
-	//   allowed by the exchange.
+	//   allowed by the exchange. This currency sets the default for
+	//   all floors specified in the Imp object.
 	BidFloorCur string `json:"bidfloorcur,omitempty"`
 
 	// Attribute:
@@ -142,7 +143,7 @@ type Imp struct {
 	//   creative in an app, where 0 = embedded, 1 = native. Note that
 	//   the Safari View Controller in iOS 9.x devices is considered a
 	//   native browser for purposes of this attribute.
-	ClickBrowser int8 `json:"clickbrowser,omitempty"`
+	ClickBrowser *int8 `json:"clickbrowser,omitempty"`
 
 	// Attribute:
 	//   secure
