@@ -3,13 +3,14 @@ package openrtb2
 import (
 	"encoding/json"
 
-	"github.com/prebid/openrtb/v19/adcom1"
+	"github.com/prebid/openrtb/v20/adcom1"
 )
 
 // Object: RefSettings
 //
 // Information on how often and what triggers an ad slot being refreshed.
 type RefSettings struct {
+
 	// Attribute:
 	//   reftype
 	// Type:
