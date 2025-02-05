@@ -19,7 +19,7 @@ type Imp struct {
 	//   string; required
 	// Description:
 	//   A unique identifier for this impression within the context of
-	//   the bid request (typically, starts with 1 and increments.
+	//   the bid request (typically, starts with 1 and increments).
 	ID string `json:"id"`
 
 	// Attribute:
@@ -130,7 +130,8 @@ type Imp struct {
 	// Description:
 	//   Currency specified using ISO-4217 alpha codes. This may be
 	//   different from bid currency returned by bidder if this is
-	//   allowed by the exchange.
+	//   allowed by the exchange. This currency sets the default for
+	//   all floors specified in the Imp object.
 	BidFloorCur string `json:"bidfloorcur,omitempty"`
 
 	// Attribute:
@@ -142,7 +143,7 @@ type Imp struct {
 	//   creative in an app, where 0 = embedded, 1 = native. Note that
 	//   the Safari View Controller in iOS 9.x devices is considered a
 	//   native browser for purposes of this attribute.
-	ClickBrowser int8 `json:"clickbrowser,omitempty"`
+	ClickBrowser *int8 `json:"clickbrowser,omitempty"`
 
 	// Attribute:
 	//   secure
@@ -217,6 +218,14 @@ type Imp struct {
 	//   impression will be displayed) in Unix format (i.e., milliseconds since
 	//   the epoch).
 	DT float64 `json:"dt,omitempty"`
+
+	// Attribute:
+	//   refresh
+	// Type:
+	//   object
+	// Description:
+	//   Details about ad slots being refreshed automatically. (Section 3.2.33)
+	Refresh *Refresh `json:"refresh,omitempty"`
 
 	// Attribute:
 	//   ext

@@ -3,7 +3,7 @@ package openrtb2
 import (
 	"encoding/json"
 
-	"github.com/prebid/openrtb/v17/adcom1"
+	"github.com/prebid/openrtb/v20/adcom1"
 )
 
 // 3.2.8 Object: Audio
@@ -170,7 +170,7 @@ type Audio struct {
 	// Type:
 	//   integer
 	// Description:
-	//   Minimum bit rate in Kbps.
+	//   Minimum bit rate in Kbps (kilobits per second).
 	MinBitrate int64 `json:"minbitrate,omitempty"`
 
 	// Attribute:
@@ -178,7 +178,7 @@ type Audio struct {
 	// Type:
 	//   integer
 	// Description:
-	//   Maximum bit rate in Kbps.
+	//   Maximum bit rate in Kbps (kilobits per second).
 	MaxBitrate int64 `json:"maxbitrate,omitempty"`
 
 	// Attribute:
@@ -245,7 +245,7 @@ type Audio struct {
 	// Description:
 	//   Indicates if the ad is stitched with audio content or delivered
 	//   independently, where 0 = no, 1 = yes.
-	Stitched int8 `json:"stitched,omitempty"`
+	Stitched *int8 `json:"stitched,omitempty"`
 
 	// Attribute:
 	//   nvol
@@ -255,6 +255,15 @@ type Audio struct {
 	//   Volume normalization mode. Refer to List: Volume
 	//   Normalization Modes in AdCOM 1.0.
 	NVol *adcom1.VolumeNormalizationMode `json:"nvol,omitempty"`
+
+	// Attribute:
+	//   durfloors
+	// Type:
+	//   object array
+	// Description:
+	//   An array of DurFloors objects (Section 3.2.35) indicating the floor
+	//   prices for video creatives of various durations that the buyer may bid with.
+	DurFloors []DurFloors `json:"durfloors,omitempty"`
 
 	// Attribute:
 	//   ext

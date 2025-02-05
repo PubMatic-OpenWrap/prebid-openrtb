@@ -3,7 +3,7 @@ package openrtb2
 import (
 	"encoding/json"
 
-	"github.com/prebid/openrtb/v17/adcom1"
+	"github.com/prebid/openrtb/v20/adcom1"
 )
 
 // 3.2.7 Object: Video
@@ -112,7 +112,7 @@ type Video struct {
 	//   integer; recommended
 	// Description:
 	//   Width of the video player in device independent pixels (DIPS).
-	W int64 `json:"w,omitempty"`
+	W *int64 `json:"w,omitempty"`
 
 	// Attribute:
 	//   h
@@ -120,7 +120,7 @@ type Video struct {
 	//   integer; recommended
 	// Description:
 	//   Height of the video player in device independent pixels (DIPS).
-	H int64 `json:"h,omitempty"`
+	H *int64 `json:"h,omitempty"`
 
 	// Attribute:
 	//   podid
@@ -160,11 +160,19 @@ type Video struct {
 	// Attribute:
 	//   placement
 	// Type:
-	//   integer
+	//   integer; DEPRECATED
 	// Description:
 	//   Video placement type for the impression. Refer to List:
 	//   Placement Subtypes - Video in AdCOM 1.0.
 	Placement adcom1.VideoPlacementSubtype `json:"placement,omitempty"`
+
+	// Attribute:
+	//   plcmt
+	// Type:
+	//   integer
+	// Description:
+	//   Video placement type for the impression. Refer to List: Plcmt Subtypes - Video in AdCOM 1.0.
+	Plcmt adcom1.VideoPlcmtSubtype `json:"plcmt,omitempty"`
 
 	// Attribute:
 	//   linearity
@@ -268,7 +276,7 @@ type Video struct {
 	// Type:
 	//   integer
 	// Description:
-	//   Minimum bit rate in Kbps.
+	//   Minimum bit rate in Kbps (kilobits per second).
 	MinBitRate int64 `json:"minbitrate,omitempty"`
 
 	// Attribute:
@@ -276,7 +284,7 @@ type Video struct {
 	// Type:
 	//   integer
 	// Description:
-	//   Maximum bit rate in Kbps.
+	//   Maximum bit rate in Kbps (kilobits per second).
 	MaxBitRate int64 `json:"maxbitrate,omitempty"`
 
 	// Attribute:
@@ -286,7 +294,7 @@ type Video struct {
 	// Description:
 	//   Indicates if letter-boxing of 4:3 content into a 16:9 window is
 	//   allowed, where 0 = no, 1 = yes.
-	BoxingAllowed int8 `json:"boxingallowed,omitempty"`
+	BoxingAllowed *int8 `json:"boxingallowed,omitempty"`
 
 	// Attribute:
 	//   playbackmethod
@@ -365,6 +373,24 @@ type Video struct {
 	//   rendered as an end-card, this can be specified using the vcm
 	//   attribute with the particular banner (Section 3.2.6).
 	CompanionType []adcom1.CompanionType `json:"companiontype,omitempty"`
+
+	// Attribute:
+	//   poddedupe
+	// Type:
+	//   enum array; provisional
+	// Description:
+	//   Indicates pod deduplication settings that will be applied to bid
+	//   responses. Refer to List: Pod Deduplication in AdCOM 1.0.
+	PodDedupe []adcom1.PodDedupe `json:"poddedupe,omitempty"`
+
+	// Attribute:
+	//   durfloors
+	// Type:
+	//   object array
+	// Description:
+	//   An array of DurFloors objects (Section 3.2.35) indicating the floor
+	//   prices for video creatives of various durations that the buyer may bid with.
+	DurFloors []DurFloors `json:"durfloors,omitempty"`
 
 	// Attribute:
 	//   ext

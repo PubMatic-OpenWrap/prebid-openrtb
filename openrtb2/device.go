@@ -3,7 +3,7 @@ package openrtb2
 import (
 	"encoding/json"
 
-	"github.com/prebid/openrtb/v17/adcom1"
+	"github.com/prebid/openrtb/v20/adcom1"
 )
 
 // 3.2.18 Object: Device
@@ -186,7 +186,7 @@ type Device struct {
 	//   integer
 	// Description:
 	//   Support for JavaScript, where 0 = no, 1 = yes.
-	JS int8 `json:"js,omitempty"`
+	JS *int8 `json:"js,omitempty"`
 
 	// Attribute:
 	//   geofetch
@@ -195,7 +195,7 @@ type Device struct {
 	// Description:
 	//   Indicates if the geolocation API will be available to JavaScript
 	//   code running in the banner, where 0 = no, 1 = yes.
-	GeoFetch int8 `json:"geofetch,omitempty"`
+	GeoFetch *int8 `json:"geofetch,omitempty"`
 
 	// Attribute:
 	//   flashver
@@ -266,6 +266,10 @@ type Device struct {
 	//   string
 	// Description:
 	//   ID sanctioned for advertiser use in the clear (i.e., not hashed).
+	//   Unless prior arrangements have been made between the buyer and the
+	//   seller directly, the value in this field is expected to be an ID
+	//   derived from a call to an advertising API provided by the device’s
+	//   Operating System.
 	IFA string `json:"ifa,omitempty"`
 
 	// Attribute:
